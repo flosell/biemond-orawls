@@ -35,7 +35,7 @@ define orawls::oud::instance (
   $execPath = '/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:'
 
   exec { "rootUserPasswordFile ${title}":
-    command   => "echo ${oud_root_user_password} > ${instances_home}/${oud_instance_name}pass.txt",
+    command   => "echo '${oud_root_user_password}' > ${instances_home}/${oud_instance_name}pass.txt",
     timeout   => 0,
     unless    => "test -d ${instances_home}/${oud_instance_name}",
     require   => File[$instances_home],
